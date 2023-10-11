@@ -13,21 +13,7 @@
 	// Parse the ESLint reports when the component is mounted
 	onMount(async () => {
 		try {
-			const parsedReport = parseEslintReport(eslintReportJSON);
-			eslintReports = parsedReport.map(
-				(report) =>
-					new EslintReport(
-						report.filePath,
-						report.messages,
-						report.suppressedMessages,
-						report.errorCount,
-						report.fatalErrorCount,
-						report.warningCount,
-						report.fixableErrorCount,
-						report.fixableWarningCount,
-						report.usedDeprecatedRules
-					)
-			);
+			eslintReports = parseEslintReport(eslintReportJSON);
 		} catch (error) {
 			console.error('Failed to parse ESLint report JSON:', error);
 		}

@@ -9,6 +9,7 @@ export class EslintReport {
      * @param {number} fixableErrorCount
      * @param {number} fixableWarningCount
      * @param {Array<any>} usedDeprecatedRules
+     * @param {string} source
      */
     constructor(
       filePath,
@@ -19,7 +20,8 @@ export class EslintReport {
       warningCount,
       fixableErrorCount,
       fixableWarningCount,
-      usedDeprecatedRules
+      usedDeprecatedRules,
+      source = ""
     ) {
       this.filePath = filePath;
       this.messages = messages;
@@ -30,5 +32,6 @@ export class EslintReport {
       this.fixableErrorCount = fixableErrorCount;
       this.fixableWarningCount = fixableWarningCount;
       this.usedDeprecatedRules = usedDeprecatedRules;
+      this.source = source;
     }
   }

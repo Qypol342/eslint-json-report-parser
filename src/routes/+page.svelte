@@ -31,7 +31,7 @@
 {/if}
 
 {#if parentJsonContent}
-	<div class="flex flex-col gap-10 items-center p-5 w-screen h-full min-h-screen bg-purple-200">
+	<div class="flex overflow-x-hidden flex-col gap-10 items-center p-5 w-screen max-w-full h-full min-h-screen bg-purple-200">
 		<EslintReportDisplayWrapper eslintReportJSON={parentJsonContent} />
 	</div>
 {/if}

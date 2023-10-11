@@ -11,8 +11,9 @@ export function parseEslintReport(eslintReportJSON) {
 		/** @type {Array<EslintReport>} */
 		const reports = JSON.parse(eslintReportJSON).map(
 			(
-				/** @type {{ filePath: string; messages: any[]; suppressedMessages: any[]; errorCount: number; fatalErrorCount: number; warningCount: number; fixableErrorCount: number; fixableWarningCount: number; usedDeprecatedRules: any[]; }} */ rawReport
+				/** @type {{ filePath: string; messages: any[]; suppressedMessages: any[]; errorCount: number; fatalErrorCount: number; warningCount: number; fixableErrorCount: number; fixableWarningCount: number; usedDeprecatedRules: any[]; source: string; }} */ rawReport
 			) => {
+				
 				return new EslintReport(
 					rawReport.filePath,
 					rawReport.messages,
@@ -22,10 +23,12 @@ export function parseEslintReport(eslintReportJSON) {
 					rawReport.warningCount,
 					rawReport.fixableErrorCount,
 					rawReport.fixableWarningCount,
-					rawReport.usedDeprecatedRules
+					rawReport.usedDeprecatedRules,
+					rawReport.source,
 				);
 			}
 		);
+		
 
 		// Filter out reports that have no issues
 		const reportsWithIssues = reports.filter((report) => {
@@ -39,6 +42,7 @@ export function parseEslintReport(eslintReportJSON) {
 				fixableWarningCount > 0
 			);
 		});
+		debugger
 
 		return reportsWithIssues;
 	} catch (error) {
