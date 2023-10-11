@@ -20,12 +20,18 @@
 </script>
 
 {#if isFileInputVisible}
+<div class="flex flex-col gap-10 items-center p-5 w-screen h-screen bg-purple-200">
+  <div class="flex gap-1 items-end">
+    <h1 class="text-4xl">👋 Welcome to the 
+    <span class="font-bold text-purple-600">ESLint</span>
+    report parser</h1>
+  </div>
+  
   <FileInput on:json={handleJsonFromChild} />
+
+</div>
 {/if}
 
 {#if parentJsonContent}
-  <h3 class="">JSON Content:</h3>
-  <textarea readonly bind:value={parentJsonContent}></textarea>
-
   <EslintReportDisplayWrapper eslintReportJSON={parentJsonContent}/>
 {/if}
