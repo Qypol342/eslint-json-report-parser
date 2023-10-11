@@ -1,37 +1,37 @@
 <script>
-  import FileInput from "../components/FileInput.svelte";
-  import EslintReportDisplayWrapper from "../components/EslintReportDisplayWrapper.svelte";
+	import FileInput from '../components/FileInput.svelte';
+	import EslintReportDisplayWrapper from '../components/EslintReportDisplayWrapper.svelte';
 
+	let parentJsonContent = '';
+	let isFileInputVisible = true;
 
-  let parentJsonContent = '';
-  let isFileInputVisible = true;
+	/**
+	 * Handle the custom 'json' event from the FileInput component.
+	 * @param {CustomEvent<string>} event - The custom event containing the JSON data.
+	 */
+	const handleJsonFromChild = (event) => {
+		parentJsonContent = event.detail;
 
-  /**
-   * Handle the custom 'json' event from the FileInput component.
-   * @param {CustomEvent<string>} event - The custom event containing the JSON data.
-   */
-  const handleJsonFromChild = (event) => {
-    parentJsonContent = event.detail;
-
-  
-      isFileInputVisible = false;
-    
-  };
+		isFileInputVisible = false;
+	};
 </script>
 
 {#if isFileInputVisible}
-<div class="flex flex-col gap-10 items-center p-5 w-screen h-screen bg-purple-200">
-  <div class="flex gap-1 items-end">
-    <h1 class="text-4xl">👋 Welcome to the 
-    <span class="font-bold text-purple-600">ESLint</span>
-    report parser</h1>
-  </div>
-  
-  <FileInput on:json={handleJsonFromChild} />
+	<div class="flex flex-col gap-10 items-center p-5 w-screen h-screen bg-purple-200">
+		<div class="flex gap-1 items-end">
+			<h1 class="text-4xl">
+				👋 Welcome to the
+				<span class="font-bold text-purple-600">ESLint</span>
+				report parser
+			</h1>
+		</div>
 
-</div>
+		<FileInput on:json={handleJsonFromChild} />
+	</div>
 {/if}
 
 {#if parentJsonContent}
-  <EslintReportDisplayWrapper eslintReportJSON={parentJsonContent}/>
+	<div class="flex flex-col gap-10 items-center p-5 w-screen h-full min-h-screen bg-purple-200">
+		<EslintReportDisplayWrapper eslintReportJSON={parentJsonContent} />
+	</div>
 {/if}
