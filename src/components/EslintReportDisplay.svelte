@@ -34,9 +34,9 @@
 	}
 </script>
 
-<div class="flex overflow-hidden flex-col gap-1 p-2 w-full bg-purple-100 rounded-lg">
-	<button on:click={toggleCollapse} class="flex gap-2 p-2 text-2xl rounded-lg hover:bg-purple-300">
-		<button class="flex p-1 rounded-lg hover:bg-purple-200 hover:underline" on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave}>
+<div class="flex overflow-hidden flex-col gap-1 p-2 w-full bg-purple-100 rounded-lg dark:bg-purple-1100 dark:text-white">
+	<button on:click={toggleCollapse} class="flex gap-2 p-2 text-2xl rounded-lg hover:bg-purple-300 dark:hover:bg-purple-1200">
+		<button class="flex p-1 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-1100 hover:underline" on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave}>
 			<h3 class="whitespace-nowrap">📄:</h3>
 			<p class="overflow-hidden truncate whitespace-nowrap">
 				{#if eslintReport.filePath.length > 40 && !pathHovered}
@@ -76,15 +76,13 @@
 
 			<div class="flex flex-col gap-2 px-2 w-full">
 				{#each eslintReport.messages as message (message)}
-					<div class="flex flex-col gap-2 p-2 w-full bg-purple-200 rounded-lg dark:text-black">
+					<div class="flex flex-col gap-2 p-2 w-full bg-purple-200 rounded-lg dark:text-white dark:bg-purple-1200">
 						<div class="flex gap-2">
 							<p>Severity: {getColorCubeEmoji(message.severity)}</p>
 							<p>L: {message.line}</p>
-							<p>EL: {message.endLine}</p>
 							<p>C: {message.column}</p>
-							<p>EC: {message.endColumn}</p>
 						</div>
-						<div class="p-2 bg-purple-50 rounded-md dark:bg-purple-100 dark:text-black">{message.message}</div>
+						<div class="p-2 bg-purple-50 rounded-md dark:bg-purple-1100 dark:text-white">{message.message}</div>
 
 						<!-- Replace the textarea with the CodeSnippet component -->
 						<CodeSnippet
