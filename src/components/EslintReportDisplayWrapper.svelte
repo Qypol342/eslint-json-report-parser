@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import EslintReportDisplay from './EslintReportDisplay.svelte';
 	import { parseEslintReport } from '$lib/eslintReportParser'; // Assuming you have the library in the same directory
+	// @ts-ignore
 	import { EslintReport } from '$lib/eslintReport';
 
 	/** @type {string} */
@@ -18,9 +19,13 @@
 			console.error('Failed to parse ESLint report JSON:', error);
 		}
 	});
+
+	function reload(){
+		location.reload();
+	}
 </script>
 
-<h1 class="text-4xl font-bold">📋 <span class="text-purple-600">ESLint</span> Reports</h1>
+<button on:click={reload} class="text-4xl font-bold dark:text-white">📋 <span class="text-purple-600">ESLint</span> Reports</button>
 
 {#if eslintReports.length > 0}
 	<div class="flex gap-2 p-2 text-lg bg-purple-100 rounded-lg">

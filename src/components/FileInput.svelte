@@ -44,7 +44,7 @@
 	};
 </script>
 
-<div class="flex flex-col gap-5 items-center p-5 bg-purple-100 rounded-xl">
+<div class="flex flex-col gap-5 items-center p-5 bg-purple-100 rounded-xl dark:bg-purple-1000">
 	<h2 class="text-2xl font-semibold">📁 Load report:</h2>
 
 	<div class="flex gap-4">
@@ -55,7 +55,7 @@
 
 	<div class="flex gap-4 w-full">
 		<label class="mr-auto text-xl whitespace-nowrap" for="clipboard">📋 By clipboard:</label>
-		<textarea id="clipboard" class="w-full" bind:value={props.jsonContent} />
+		<textarea id="clipboard" class="p-1 w-full h-44 font-mono rounded-md dark:text-black dark:bg-purple-200" bind:value={props.jsonContent} />
 	</div>
 
 	<div class="flex flex-col items-center">

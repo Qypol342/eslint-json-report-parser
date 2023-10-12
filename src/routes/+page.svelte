@@ -17,7 +17,7 @@
 </script>
 
 {#if isFileInputVisible}
-	<div class="flex flex-col gap-10 items-center p-5 w-screen h-screen bg-purple-200">
+	<div class="flex flex-col gap-10 items-center p-5 w-screen h-screen bg-purple-200 dark:bg-purple-950 dark:text-white">
 		<div class="flex gap-1 items-end">
 			<h1 class="text-4xl">
 				👋 Welcome to the
@@ -31,7 +31,7 @@
 {/if}
 
 {#if parentJsonContent}
-	<div class="flex overflow-x-hidden flex-col gap-10 items-center p-5 w-screen max-w-full h-full min-h-screen bg-purple-200">
+	<div class="flex overflow-x-hidden flex-col gap-10 items-center p-5 w-screen max-w-full h-full min-h-screen bg-purple-200 dark:bg-purple-1000">
 		<EslintReportDisplayWrapper eslintReportJSON={parentJsonContent} />
 	</div>
 {/if}

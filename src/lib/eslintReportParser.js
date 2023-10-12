@@ -42,8 +42,6 @@ export function parseEslintReport(eslintReportJSON) {
 				fixableWarningCount > 0
 			);
 		});
-		debugger
-
 		return reportsWithIssues;
 	} catch (error) {
 		throw error;
