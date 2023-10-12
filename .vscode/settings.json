@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "home page"
+        "home page",
+        "Report"
     ]
 }
